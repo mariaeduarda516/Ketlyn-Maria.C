@@ -34,6 +34,29 @@ const perguntas = [
         ]
     },
     {
-        
+        enunciado: "Você tem um trabalho em grupo de biologia para entregar na semana seguinte, o andamento do trabalho está um pouco atrasado e uma pessoa do seu grupo decidiu fazer com ajuda do IA. O problema é que o trabalho está totalmente igual ao chat. O que você faz?",
+        alternativas: [
+        "Escrever comandos para o chat é uma forma de contribuir com o trabalho, por isso não é um problema utilizar o texto inteiro.",
+        "O chat pode ser uma tecnologia muito avançada, mas é preciso manter a atenção pois toda maquina erra, por isso revisar o trabalho e contribuir com as perspectivas pessoais é essencial."
+    ]
+      },
+];
+
+let atual = 0;
+let perguntaAtual;
+
+function mostrapergunta() {
+    perguntaAtual = perguntas[atual];
+    caixaPerguntas.textContent = perguntaAtual.enunciado;
+    mostraAlternativas();
+}
+
+ function mostraAlternativas() {
+        for (const alternativa of perguntaAtual.alternativas) { 
+           const botaoAlternativas = document.createElement("button");
+           botaoAlternativas.textContent = alternativa;
+           caixaAlternativas.appendChild(botaoAlternativas);
     }
-]
+}
+
+mostrapergunta();
